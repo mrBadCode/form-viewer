@@ -8,13 +8,18 @@ import './App.css';
 
 function buildItems(data) {
   const retVal = {};
-  const labels = [];
   Object.keys(data).forEach(name => {
     retVal[name] = Object.keys(data[name])
     retVal[name].map(key => ({ key, val: data[name][key] }))
   })
 }
 
+function buildLabels(data) {
+  const labels = []
+  Object.keys(data).forEach(name => {
+    
+  })
+}
 
 class App extends Component {
   constructor (props) {
