@@ -1,0 +1,42 @@
+export default {
+  person1: {
+    key1a: "val1a",
+    key1b: "val1b",
+    key1c: "val1c",
+    key1d: "val1d",
+    key1e: "val1e",
+    key1f: "val1f",
+  },
+  person2: {
+    key2a: "val2a",
+    key2b: "val2b",
+    key2c: "val2c",
+    key2d: "val2d",
+    key2e: "val2e",
+    key2f: "val2f",
+  },
+  person3: {
+    key3a: "val3a",
+    key3b: "val3b",
+    key3c: "val3c",
+    key3d: "val3d",
+    key3e: "val3e",
+    key3f: "val3f",
+  },
+  person4: {
+    key4a: "val4a",
+    key4b: "val4b",
+    key4c: "val4c",
+    key4d: "val4d",
+    key4e: "val4e",
+    key4f: "val4f",
+  },
+  person5: {
+    key5a: "val5a",
+    key5b: "val5b",
+    key5c: "val5c",
+    key5d: "val5d",
+    key5e: "val5e",
+    key5f: "val5f",
+  },
+}
