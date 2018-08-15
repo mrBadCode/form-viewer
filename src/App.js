@@ -3,22 +3,23 @@ import Button from '@material-ui/core/Button';
 import Autocomplete from 'react-autocomplete';
 import logo from './logo.svg';
 import TextField from '@material-ui/core/TextField';
+import KeyValueCard from './card';
 import './App.css';
 
 
-function buildItems(data) {
-  const retVal = {};
-  Object.keys(data).forEach(name => {
-    retVal[name] = Object.keys(data[name])
-    retVal[name].map(key => ({ key, val: data[name][key] }))
-  })
-}
+  // { // sample output
+  //   '__allNames': [name1, name2, ...]
+  //   '__allKeys': [key1, key2, key3, ...]
+  //   'name1': {k1: v1, k2: v2, k3: v3 ...}
+  //   'name2': ...
+  // }
 
 function buildLabels(data) {
   const labels = []
-  Object.keys(data).forEach(name => {
-    
-  })
+  data['__allNames'].forEach(name => {
+    labels.push({ id: name, label: name });
+  });
+  return labels;
 }
 
 class App extends Component {
@@ -26,8 +27,23 @@ class App extends Component {
     super(props)
     this.state = {
       inputValue: '',
-      selected: '',
+      selected: null,
     }
+    this.labels = buildLabels(props.inputData);
+    console.log(props.inputData);
+    
+  }
+
+  buildSelectedCards() {
+    const allKeys = this.props.inputData['__allKeys']
+    const { selected } = this.state;
+    if(selected === null) return '';
+    const keyValues = this.props.inputData[selected];
+    console.log(selected);
+    console.log(keyValues);
+    return allKeys.map(key => (
+      <KeyValueCard key={key} title={key} content={keyValues[key]} />
+    ));
   }
 
   render() {
@@ -38,14 +54,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        
+        <div className='sticky-title'>
         <h2 style={{display:"inline-block"}}>Name:</h2>
         <Autocomplete
-          items={[
-            { id: 'foo', label: 'foo' },
-            { id: 'bar', label: 'bar' },
-            { id: 'baz', label: 'baz' },
-          ]}
+          items={this.labels}
           shouldItemRender={(item, inputValue) => item.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1}
           getItemValue={item => item.label}
           renderItem={(item, highlighted) =>
@@ -75,7 +87,11 @@ class App extends Component {
           onChange={e => this.setState({ inputValue: e.target.value })}
           onSelect={inputValue => this.setState({ inputValue, selected: inputValue })}
         />
-        <h1>{selected}</h1>
+        </div>
+        <div>
+          {this.buildSelectedCards()}
+        </div>
+
       </div>
     );
   }

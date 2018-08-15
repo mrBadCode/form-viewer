@@ -22,6 +22,15 @@
   font-size: large;
 }
 
+.sticky-title {
+  background-color: #fff;
+  position: sticky;
+  top: 0px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #00000044;
+  z-index: 1;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
