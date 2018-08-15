@@ -6,7 +6,7 @@ import testData from './testData';
 
 
 if (!window.google) {
-  onSuccess(testData);
+  onSuccess(JSON.stringify(testData));
 } else {
   window.google.script.run.withSuccessHandler(onSuccess)
   .getSheetContent();

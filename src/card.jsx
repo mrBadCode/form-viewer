@@ -9,7 +9,7 @@ class KeyValueCard extends Component {
   render() {
     const { title, content } = this.props;
     return (
-      <Paper elevation={2} className="kvcard-container">
+      <Paper elevation={2} style={{width: '40%'}}>
 
         <AppBar position="static" color="secondary">
           <Toolbar>

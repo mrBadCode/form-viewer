@@ -39,11 +39,21 @@ class App extends Component {
     const { selected } = this.state;
     if(selected === null) return '';
     const keyValues = this.props.inputData[selected];
-    console.log(selected);
-    console.log(keyValues);
-    return allKeys.map(key => (
-      <KeyValueCard key={key} title={key} content={keyValues[key]} />
-    ));
+    const retArr = [];
+    for (let index = 0; index < allKeys.length; index += 2) {
+      const key1 = allKeys[index];
+      const key2 = allKeys[index + 1];
+      
+      retArr.push(
+        <div key={key1} className='kvcard-container'>
+          <KeyValueCard title={key1} content={keyValues[key1]} />
+        { !key2 ? "" : 
+          <KeyValueCard title={key2} content={keyValues[key2]} />
+        }
+        </div>
+      )
+    }
+    return retArr;
   }
 
   render() {
