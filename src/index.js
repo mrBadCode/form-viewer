@@ -21,6 +21,7 @@ function onSuccess(data) {
 function preFormData(data) {
   // remove cols 0 & 1
   // join cols 2 & 3
+  data = JSON.parse(data);
   for (let rowIdx = 0; rowIdx < data.length; rowIdx++) {
     const row = data[rowIdx];
     const newRow = [];
