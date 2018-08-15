@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="https://avatars2.githubusercontent.com/u/2138704?s=400&v=4" className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <div className='sticky-title'>

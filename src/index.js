@@ -5,6 +5,12 @@ import App from './App';
 import testData from './testData';
 
 
+if (!window.google) {
+  onSuccess(testData);
+} else {
+  window.google.script.run.withSuccessHandler(onSuccess)
+  .getSheetContent();
+}
 
 function onSuccess(data) {
   data = preFormData(data);
@@ -66,10 +72,4 @@ function formData(data, sortByIdx) {
   }
 
   return output;
-}
-if (!window.google) {
-  onSuccess(testData);
-} else {
-  window.google.script.run.withSuccessHandler(onSuccess)
-  .getAllData();
 }
